@@ -54,4 +54,14 @@ public class RGData {
 		LastName = lastName;
 	}
 	
+	public RGData(String username, String password, String hAddress, String eMail, String firstName, String lastName) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.hAddress = hAddress;
+		this.eMail = eMail;
+		this.firstName = firstName;
+		LastName = lastName;
+	}
+	
 }

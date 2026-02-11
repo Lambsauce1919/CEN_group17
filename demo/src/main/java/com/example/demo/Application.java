@@ -2,50 +2,71 @@ package com.example.demo;
 
 import java.util.Scanner;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import Session_Management.SessionManager;
+import profile_management.login_controller;
 @SpringBootApplication
-public class Application {
+public class Application implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-		boolean lI = false; // lI = logged in.
-		Scanner sc = new Scanner(System.in);
-		String inp = sc.nextLine();
-		
-		
+		SpringApplication app = new SpringApplication(Application.class);
+        app.setWebApplicationType(WebApplicationType.NONE);
+        app.run(args);
+	}
+	
+	public void run(String... args) throws Exception {
+		Scanner sc = new Scanner(System.in);	
+		String inp = null;
 		
 		System.out.println("Welcome to the library, please login or "
 				+ "register if you do not have an account.");
+	
 		
-		String username = null;
-		String password = null; 
-		
-		while (!lI) { // Keep the user in the login portal until they've passed conditions
+		while (!SessionManager.getInstance().isAuthenticated()) { // Keep the user in the login portal until they've passed conditions
 			
 		System.out.println("l: Login\nr: Register");
 		inp = sc.nextLine();
 		
-		switch (inp) {
+		switch (inp.toLowerCase()) {
 		
-		case "l":
+		case "l": // Case for the user to login.
 			
-			System.out.println("You have chosen to login, please enter your USERNAME press ENTER, then password press ENTER");
+			login_controller.displayLoginInfo();
+			System.out.println("Username:");
+			String username = sc.nextLine();
+			System.out.println("Password:");
+			String password = sc.nextLine();
 			
+			login_controller.loginUser(username, password);
+			
+			break;
+			
+		case "r": // Case for a user to register;
 			
 			
 			
 			break;
 		
-		
+		default:
+			System.out.println("You have entered an incorrect option.");
+			break;
 		
 		}
 			
 			
 		}
 		
+	System.out.println("Welcome to the Library, please see the menu options listed below.");
+	sc.nextLine(); // Consume any left overs.
+	if (SessionManager.getInstance().isAuthenticated())	{
 		
+		System.out.println("");
+		inp = sc.nextLine();
 		
 		do {
 			
@@ -67,13 +88,16 @@ public class Application {
 			
 			
 			
-		} while (!inp.equalsIgnoreCase("quit"));
+		} while (!inp.equalsIgnoreCase("quit")); }
 		
 		
 		
 		
+		
+		sc.close();
+		}
 		
 		
 	}
 
-}
+

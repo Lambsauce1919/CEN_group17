@@ -6,8 +6,11 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 // Initial design - Brenden
+
 public interface ApiServices {
-/*================================
+	
+/*
+ *================================
  *====PROFILE MANAGEMENT CALLS====
  *================================
  */
@@ -16,7 +19,7 @@ public interface ApiServices {
 	Call<LoginData> requestLogin(@Body LoginData ld);
 	
 	@POST("/REGISTER")
-	Call<RGData> requestRegistration(@Body RGData rgd);
+	Call<LoginData> requestRegistration(@Body RGData rgd);
 	
 	
 	
