@@ -14,8 +14,8 @@ public class RGData {
 	
 	private String hAddress;
 	private String eMail;
-	private String firstName;
-	private String LastName;
+	private String name;
+
 	
 	public String getUsername() {
 		return username;
@@ -41,27 +41,20 @@ public class RGData {
 	public void seteMail(String eMail) {
 		this.eMail = eMail;
 	}
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public String getLastName() {
-		return LastName;
-	}
-	public void setLastName(String lastName) {
-		LastName = lastName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
-	public RGData(String username, String password, String hAddress, String eMail, String firstName, String lastName) {
+	public RGData(String username, String password, String hAddress, String eMail, String name) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.hAddress = hAddress;
 		this.eMail = eMail;
-		this.firstName = firstName;
-		LastName = lastName;
+		this.name = name;
 	}
-	
+
 }

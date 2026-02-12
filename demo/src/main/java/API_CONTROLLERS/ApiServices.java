@@ -19,7 +19,7 @@ public interface ApiServices {
 	Call<LoginData> requestLogin(@Body LoginData ld);
 	
 	@POST("/REGISTER")
-	Call<LoginData> requestRegistration(@Body RGData rgd);
+	Call<RGData> requestRegistration(@Body RGData rgd);
 	
 	
 	

@@ -9,15 +9,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import Session_Management.SessionManager;
 import profile_management.login_controller;
-@SpringBootApplication
-public class Application implements CommandLineRunner{
+import profile_management.registration_controller;
+public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-		SpringApplication app = new SpringApplication(Application.class);
-        app.setWebApplicationType(WebApplicationType.NONE);
+    public static void main(String[] args) throws Exception {
+        // 1. If you have setup logic that was in your 'run' method, call it here
+        Application app = new Application();
         app.run(args);
-	}
+    }
 	
 	public void run(String... args) throws Exception {
 		Scanner sc = new Scanner(System.in);	
@@ -48,7 +47,7 @@ public class Application implements CommandLineRunner{
 			
 		case "r": // Case for a user to register;
 			
-			
+			registration_controller.gatherInformation(sc);
 			
 			break;
 		
