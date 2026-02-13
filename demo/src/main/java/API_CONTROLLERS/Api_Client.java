@@ -11,8 +11,9 @@ public class Api_Client {
 
     private static ApiServices api;
 
-    private static final String BASE_URL = "https://your-backend-url.com";
-
+    private static final String BASE_URL = "http://localhost:8080/";
+    
+    
     public static ApiServices getApi() {
 
         if (api == null) {

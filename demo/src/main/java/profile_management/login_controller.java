@@ -27,16 +27,28 @@ public class login_controller {
 		try { 
 			response = api.requestLogin(ld).execute(); 
 		
-			if (response.isSuccessful()) { 
-			SessionManager.getInstance().setSession_token(response.body().getToken()); // Set the returned session token, this is used for any future API calls.
-			 // Set the singleton instance session boolean auth to true to break loop
+			if (response.isSuccessful() && response.body() != null) { 
+			
+			LoginData ldr = response.body();
+				
+			SessionManager.getInstance().setSession_token(ldr.getToken()); // Set the returned session token, this is used for any future API calls.
+			SessionManager.getInstance().setAuthenticated(ldr.isAuthenticated()); // Set the returned boolean value. 
+			// Set the singleton instance session boolean auth to true to break loop
+			
+			
+			System.out.println("Logged you in.");
+			System.out.println("Approval status: " + SessionManager.getInstance().isAuthenticated());
+			
+			
 			} else if (response.code() == 401) {
 				System.out.println("Did you enter an incorrect username or password?");
 				return false;
 			}
 			else { 
 				System.out.println("HTTP ERROR: " + response.code()); // Debugging 
+				if (response.errorBody().string() != null) {
 				System.out.println("Server says: " + response.errorBody().string()); // Debugging 
+				}
 				return false; 
 				} 
 			} 

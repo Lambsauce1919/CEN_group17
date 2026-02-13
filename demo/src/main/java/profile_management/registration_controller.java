@@ -64,7 +64,7 @@ public class registration_controller {
 			// Process the users information. 
 			// API call, etc.
 			RGData rgd = new RGData(username, finalPassword, hAddress, email, name);
-			Response<RGData> response;
+			Response<String> response;
 			
 			System.out.println("Packaging your data and sending it to the server, stand by...");
 			
@@ -73,7 +73,7 @@ public class registration_controller {
 			response = api.requestRegistration(rgd).execute();	
 				
 			if(response.isSuccessful()) {
-				System.out.println("Your account has been successfully created, please login to continue.");
+				System.out.println(response.body());
 			    passed = true; // Break the while loop, edge case scenario if the return for some reason doesn't.. return... 
 				return;
 				
@@ -81,8 +81,11 @@ public class registration_controller {
 				System.out.println("Server rejected your information, did you enter malformed data? Please try registering again.");
 				return;
 			} else { // Unspecified, un-handled error code. 
+				System.out.println("<=========================SERVER ERROR=========================>");
 				System.out.println("HTTP ERROR: " + response.code()); // Debugging 
 				System.out.println("Server says: " + response.errorBody().string()); // Debugging 
+				System.out.println("Server specific message (if provided): " + response.body());
+				System.out.println("<==============================================================>");
 				return;
 				}		
 			} catch (IOException e) {
@@ -93,12 +96,10 @@ public class registration_controller {
 			
 		case "n": // If the user doesn't confirm this is the correct information, they will have to restart.
 			System.out.println("Redirecting you to the main menu.\nPlease register again with the correct information.");
-			sc.close();
 			return;
 						
 		default:
 			System.out.println("Incorrect option provided.");
-			sc.close();
 			break;
 		
 			}
@@ -120,7 +121,7 @@ public class registration_controller {
 			// Return the password to be associated with the account.
 			return pone; 
 		} else {
-			
+			System.out.println("Your provided passwords did not match, please try again.");
 			gatherNewPassword(sc);
 			
 		}
@@ -144,8 +145,6 @@ public class registration_controller {
 		// Call the method again.
 		passCheck(originalPassword, confirmPassword, sc);
 		
-		// Close scanner
-		sc.close(); 
 	}
 	
 	public static void gatherInformation(Scanner sc) {

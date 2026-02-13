@@ -2,11 +2,18 @@ package profile_management.pObject_JSON;
 // - Brenden
 public class LoginData {
 
-	private String userName;
-	private String passWord;
+	private String username;
+	private String password;
 	
 	private boolean authenticated;
 	private String token;
+	
+	public LoginData() {
+		
+	}
+	
+	// Why this is important, Jackson calls new LoginData(), w/o empty constructor it will fail and cause an
+	// InvalidDefinitionException
 	
 	public boolean isAuthenticated() {
 		return authenticated;
@@ -14,17 +21,17 @@ public class LoginData {
 	public void setAuthenticated(boolean authenticated) {
 		this.authenticated = authenticated;
 	}
-	public String getUserName() {
-		return userName;
+	public String getUsername() {
+		return username;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getPassWord() {
-		return passWord;
+	public String getPassword() {
+		return password;
 	}
-	public void setPassWord(String passWord) {
-		this.passWord = passWord;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getToken() {
 		return token;
@@ -33,10 +40,10 @@ public class LoginData {
 		this.token = token;
 	}
 	
-	public LoginData(String userName, String passWord) { // This is for the initial API call, information from the user is sent over.
+	public LoginData(String username, String password) { // This is for the initial API call, information from the user is sent over.
 		super();
-		this.userName = userName;
-		this.passWord = passWord;
+		this.username = username;
+		this.password = password;
 	}
 	
 	public LoginData(boolean authenticated, String token) { // This is on-reponse information from the back-end.

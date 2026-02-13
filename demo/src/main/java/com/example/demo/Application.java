@@ -43,6 +43,8 @@ public class Application {
 			
 			login_controller.loginUser(username, password);
 			
+			System.out.println("Logged in successfully");
+			
 			break;
 			
 		case "r": // Case for a user to register;
@@ -55,8 +57,7 @@ public class Application {
 			System.out.println("You have entered an incorrect option.");
 			break;
 		
-		}
-			
+			}
 			
 		}
 		
