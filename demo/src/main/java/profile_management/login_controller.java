@@ -31,17 +31,15 @@ public class login_controller {
 			
 			LoginData ldr = response.body();
 				
+			// Set the singleton instance session boolean auth to true to break loop
 			SessionManager.getInstance().setSession_token(ldr.getToken()); // Set the returned session token, this is used for any future API calls.
 			SessionManager.getInstance().setAuthenticated(ldr.isAuthenticated()); // Set the returned boolean value. 
-			// Set the singleton instance session boolean auth to true to break loop
 			
+			System.out.println("Logging you in...");
+			System.out.println("DEBUG: Approval status: " + SessionManager.getInstance().isAuthenticated());
 			
-			System.out.println("Logged you in.");
-			System.out.println("Approval status: " + SessionManager.getInstance().isAuthenticated());
-			
-			
-			} else if (response.code() == 401) {
-				System.out.println("Did you enter an incorrect username or password?");
+			} else if (response.code() == 401) {				
+				System.out.println("Server Response: Did you enter an incorrect username or password?");
 				return false;
 			}
 			else { 
@@ -60,9 +58,9 @@ public class login_controller {
 			return response.body().isAuthenticated();
 		}
 	
-	public static void displayLoginInfo() {
-		System.out.println("You have chosen to login,\n please enter your USERNAME press ENTER, then password press ENTER");
-		System.out.println("Entries is case-sensitive.");
+	public static void displayLoginInfo() { // Responsible for printing login information. 
+		System.out.println("You have chosen to login, please enter your USERNAME press ENTER, then password press ENTER");
+		System.out.println("Entries are case-sensitive.\n");
 	}
 	
 }

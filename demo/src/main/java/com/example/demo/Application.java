@@ -36,6 +36,7 @@ public class Application {
 		case "l": // Case for the user to login.
 			
 			login_controller.displayLoginInfo();
+			
 			System.out.println("Username:");
 			String username = sc.nextLine();
 			System.out.println("Password:");
