@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package Wishlist.model;
 import jakarta.persistence.*;
 
 @Entity

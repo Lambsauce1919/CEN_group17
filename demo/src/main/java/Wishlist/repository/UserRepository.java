@@ -1,6 +1,6 @@
-package com.example.demo.repository;
+package Wishlist.repository;
 
-import com.example.demo.model.User;
+import Wishlist.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User,Integer>{

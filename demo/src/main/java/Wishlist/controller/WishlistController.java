@@ -1,9 +1,9 @@
-package com.example.demo.controller;
+package Wishlist.controller;
 
-import com.example.demo.model.User;
-import com.example.demo.model.Wishlist;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.repository.WishlistRepository;
+import Wishlist.model.Wishlist;
+import Wishlist.model.User;
+import Wishlist.repository.UserRepository;
+import Wishlist.repository.WishlistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
