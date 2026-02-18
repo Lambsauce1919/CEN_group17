@@ -26,7 +26,6 @@ public class registration_controller {
 			gatherInformation(sc);
 		}
 		
-		
 			
 		if (hAddress.isBlank()) {
 			hAddress = "N/A";
