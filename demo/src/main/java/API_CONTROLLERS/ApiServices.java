@@ -23,6 +23,8 @@ public interface ApiServices {
 	@POST("/REGISTER")
 	Call<String> requestRegistration(@Body RGData rgd);
 	
+	
+	
 	@GET("/user/{id}")
 	Call<RGData> requestUD(@Path("id") String username);
 	
