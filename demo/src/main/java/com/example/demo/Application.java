@@ -1,24 +1,28 @@
 package com.example.demo;
 
 import java.util.Scanner;
+import java.util.concurrent.locks.Condition;
 
+import Wishlist.model.Wishlist;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import Wishlist.controller.WishlistController;
 
 import Session_Management.SessionManager;
+import org.springframework.context.ConfigurableApplicationContext;
 import profile_management.login_controller;
 import profile_management.registration_controller;
 public class Application {
 
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
         // 1. If you have setup logic that was in your 'run' method, call it here
-        Application app = new Application();
+		Application app = new Application();
         app.run(args);
     }
 	
-	public void run(String... args) throws Exception {
+	public void run(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);	
 		String inp = null;
 		
@@ -74,9 +78,22 @@ public class Application {
 			if (inp == null) {
 				System.out.println("You have entered a malformed response.");
 				continue;
-			}
+		
+      }
 			
 			switch (inp) {
+          
+          
+          
+			case "w": //Case for making a Wishlist
+					System.out.println("Enter a Wishlist name:");
+					String wishlistName = sc.nextLine();
+					String currentSessionToken = SessionManager.getInstance().getSession_token();
+
+					if(currentSessionToken != null) {
+						wishlistController.createWishlist(wishlistName, currentSessionToken);
+					}
+				break;
 			
 			case "mSearch": // Member search functionality
 				profile_management.retrieve_ud.qUser(sc);
