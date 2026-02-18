@@ -20,8 +20,8 @@ public class WishlistController{
     private UserRepository userRepository;
 
     @PostMapping("/create")
-    public void createWishlist(@RequestParam String name, @RequestParam int userID) {
-        User owner = userRepository.findById(userID).orElse(null);
+    public void createWishlist(@RequestParam String name, @RequestParam String token) {
+        User owner = userRepository.findBySessionToken(token);
         if (owner == null) {
             Wishlist wishlist = new Wishlist(name, owner);
             wishlistRepository.save(wishlist);
