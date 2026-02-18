@@ -16,16 +16,13 @@ import profile_management.login_controller;
 import profile_management.registration_controller;
 public class Application {
 
-    public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {
         // 1. If you have setup logic that was in your 'run' method, call it here
-        //For Spring to work I need this for the WishlistController
-		ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
-
 		Application app = new Application();
-        app.run(args, context);
+        app.run(args);
     }
 	
-	public void run(String[] args, ConfigurableApplicationContext context) throws Exception {
+	public void run(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);	
 		String inp = null;
 		
@@ -83,7 +80,6 @@ public class Application {
 			switch (inp) {
 			
 				case "w": //Case for making a Wishlist
-					WishlistController wishlistController = context.getBean(WishlistController.class);
 					System.out.println("Enter a Wishlist name:");
 					String wishlistName = sc.nextLine();
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
