@@ -84,9 +84,8 @@ public class Application {
 					String wishlistName = sc.nextLine();
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
 
-					if(currentSessionToken != null) {
-						wishlistController.createWishlist(wishlistName, currentSessionToken);
-					}
+					WishlistController.createWishlist(wishlistName, currentSessionToken);
+					System.out.println("Wishlist created successfully!");
 					break;
 
 			

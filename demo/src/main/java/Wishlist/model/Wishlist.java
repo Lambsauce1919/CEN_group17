@@ -1,44 +1,50 @@
 package Wishlist.model;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "wishlists")
+//@Entity
+//@Table(name = "wishlists")
 public class Wishlist {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //private int id;
 
-    @Column(unique = true, nullable = false)
+    //@Column(unique = true, nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "users_id")
-    private User user;
+   //@ManyToOne
+    //@JoinColumn(name = "users_id")
+    private String token;
 
     public Wishlist(){}
 
-    public Wishlist(String name, User user){
+    public Wishlist(String name, String token){
         this.name = name;
-        this.user = user;
+        this.token = token;
     }
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-    public User getUser(){
-        return user;
+
+    public String getToken(){
+        return token;
     }
-    public void setUser(User user){
-        this.user = user;
+
+    public void setToken(String token){
+        this.token = token;
     }
+
+    /*
     public int getId() {
         return id;
     }
-    public void setId(int id) {
+    //public void setId(int id) {
         this.id = id;
     }
+    */
 }

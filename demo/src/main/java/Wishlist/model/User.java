@@ -1,11 +1,11 @@
 package Wishlist.model;
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "users")
+//@Entity
+//@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
 
