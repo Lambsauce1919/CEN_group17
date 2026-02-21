@@ -4,6 +4,7 @@ import java.util.Scanner;
 import Session_Management.SessionManager;
 import profile_management.login_controller;
 import profile_management.registration_controller;
+import com.geektext.geektext.bookbrowsing.BookBrowsingController;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
@@ -88,7 +89,14 @@ public class Application {
 			case "mSearch": // Member search functionality
 				profile_management.retrieve_ud.qUser(sc);
 				break;
-			
+
+				case "browse":
+					BookBrowsingController controller = new BookBrowsingController();
+					System.out.println("Enter genre:");
+					String genre = sc.nextLine();
+					System.out.println(controller.getBooksByGenre(genre));
+					break;
+
 			default: // If a user inputs something that doesn't line up with what we're offering, display this message.
 				System.out.println("You've entered an incorrect option, "
 						+ "options are not case-sensitive, however, grammar sensitive.");			
