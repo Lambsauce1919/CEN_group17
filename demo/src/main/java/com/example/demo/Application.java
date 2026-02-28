@@ -1,18 +1,9 @@
 package com.example.demo;
 
 import java.util.Scanner;
-import java.util.concurrent.locks.Condition;
-
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import Session_Management.SessionManager;
-import org.springframework.context.ConfigurableApplicationContext;
 import profile_management.login_controller;
 import profile_management.registration_controller;
-import wishlist_json.Wishlist;
 import wishlist_management.WishlistController;
 public class Application {
 
@@ -96,7 +87,7 @@ public class Application {
 				System.out.println("You've entered an incorrect option, "
 						+ "options are not case-sensitive, however, grammar sensitive.");			
 				break;
-			
+		
 			}
 			
 			
