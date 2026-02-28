@@ -58,19 +58,25 @@ public class Application {
 		}
 		
 	System.out.println("Welcome to the Library, please see the menu options listed below.");
-	sc.nextLine(); // Consume any left overs.
 	if (SessionManager.getInstance().isAuthenticated())	{
-		
-		System.out.println("");
-		inp = sc.nextLine();
-		
+				
 		do {
 			
+			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username.");
 			
+			inp = sc.nextLine();
+			
+			if (inp == null) {
+				System.out.println("You have entered a malformed response.");
+				continue;
+		
+      }
 			
 			switch (inp) {
-			
-				case "w": //Case for making a Wishlist
+          
+          
+          
+			case "w": //Case for making a Wishlist
 					System.out.println("Enter a Wishlist name:");
 					String wishlistName = sc.nextLine();
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
@@ -80,23 +86,23 @@ public class Application {
 					break;
 
 			
+					if(currentSessionToken != null) {
+//						wishlistController.createWishlist(wishlistName, currentSessionToken);
+					}
+				break;
 			
+			case "mSearch": // Member search functionality
+				profile_management.retrieve_ud.qUser(sc);
+				break;
 			
 			default: // If a user inputs something that doesn't line up with what we're offering, display this message.
-				inp = null;
 				System.out.println("You've entered an incorrect option, "
 						+ "options are not case-sensitive, however, grammar sensitive.");			
 				break;
 		
 			}
 			
-			
-			
 		} while (!inp.equalsIgnoreCase("quit")); }
-		
-		
-		
-		
 		
 		sc.close();
 		}
