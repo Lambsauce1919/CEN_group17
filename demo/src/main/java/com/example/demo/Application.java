@@ -4,6 +4,7 @@ import java.util.Scanner;
 import Session_Management.SessionManager;
 import profile_management.login_controller;
 import profile_management.registration_controller;
+import wishlist_management.WishlistController;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
@@ -80,6 +81,11 @@ public class Application {
 					String wishlistName = sc.nextLine();
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
 
+					WishlistController.createWishlist(wishlistName, currentSessionToken);
+					System.out.println("Wishlist created successfully!");
+					break;
+
+			
 					if(currentSessionToken != null) {
 //						wishlistController.createWishlist(wishlistName, currentSessionToken);
 					}
@@ -93,7 +99,7 @@ public class Application {
 				System.out.println("You've entered an incorrect option, "
 						+ "options are not case-sensitive, however, grammar sensitive.");			
 				break;
-			
+		
 			}
 			
 		} while (!inp.equalsIgnoreCase("quit")); }
