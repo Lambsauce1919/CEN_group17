@@ -86,11 +86,6 @@ public class Application {
 					break;
 
 			
-					if(currentSessionToken != null) {
-//						wishlistController.createWishlist(wishlistName, currentSessionToken);
-					}
-				break;
-			
 			case "mSearch": // Member search functionality
 				profile_management.retrieve_ud.qUser(sc);
 				break;
