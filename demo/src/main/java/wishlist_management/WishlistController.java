@@ -1,13 +1,11 @@
-package Wishlist.controller;
+package wishlist_management;
 
 import API_CONTROLLERS.ApiServices;
 import API_CONTROLLERS.Api_Client;
-import Wishlist.model.Wishlist;
-import Wishlist.model.User;
-import org.springframework.web.bind.annotation.*;
+import wishlist_json.User;
+import wishlist_json.Wishlist;
 
-//@RestController
-//@RequestMapping("/wishlists")
+import org.springframework.web.bind.annotation.*;
 
 public class WishlistController{
 

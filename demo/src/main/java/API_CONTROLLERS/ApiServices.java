@@ -1,12 +1,12 @@
 package API_CONTROLLERS;
 
-import Wishlist.model.Wishlist;
 import profile_management.pObject_JSON.LoginData;
 import profile_management.pObject_JSON.RGData;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 // Initial design - Brenden
+import wishlist_json.Wishlist;
 
 public interface ApiServices {
 	

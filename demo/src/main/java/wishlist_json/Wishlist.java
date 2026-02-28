@@ -1,4 +1,4 @@
-package Wishlist.model;
+package wishlist_json;
 
 public class Wishlist {
 
