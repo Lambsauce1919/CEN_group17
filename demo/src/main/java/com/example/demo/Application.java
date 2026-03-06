@@ -78,15 +78,29 @@ public class Application {
 			
 			
 			switch (inp) {
-			
+
 				case "w": //Case for making a Wishlist
 					System.out.println("Enter a Wishlist name:");
 					String wishlistName = sc.nextLine();
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
-
-					WishlistController.createWishlist(wishlistName, currentSessionToken);
-					System.out.println("Wishlist created successfully!");
+					int newId = WishlistController.createWishlist(wishlistName, currentSessionToken);
+					if(newId != -1) {
+						System.out.println("Wishlist" + wishlistName + "with ID: " + newId + "created successfully!");
+					}
+					else{
+						System.out.println("Wishlist" + wishlistName + "not created successfully.");
+					}
 					break;
+
+				case "a": //Case for adding books to wishlist
+					System.out.println("Enter the Wishlist ID of the wishlist you would like to add books to: ");
+					int wishlistId = Integer.parseInt(sc.nextLine());
+					System.out.println("Enter the Book ID of the book you would like to add: ");
+					int bookId = Integer.parseInt(sc.nextLine());
+					WishlistController.addBookToWishlist(wishlistId, bookId);
+					System.out.println("The book was added successfully!");
+					break;
+
 
 			
 			
