@@ -30,6 +30,7 @@ public interface ApiServices {
 	
 	@POST("/wishlists/addBook")
 	Call<Void> addBookToWishlist(@Query("wishlistId") int wishlist_id, @Query("bookId") int book_id);
+
 	@GET("/user/{id}")
 	Call<RGData> requestUD(@Path("id") String username);
 

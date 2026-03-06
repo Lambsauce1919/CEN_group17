@@ -1,9 +1,9 @@
-package Wishlist.controller;
+package wishlist_management;
 
 import API_CONTROLLERS.ApiServices;
 import API_CONTROLLERS.Api_Client;
-import Wishlist.model.Wishlist;
-import Wishlist.model.User;
+import wishlist_json.Wishlist;
+import wishlist_json.User;
 import org.springframework.web.bind.annotation.*;
 
 public class WishlistController{
@@ -29,7 +29,7 @@ public class WishlistController{
 
     public static void addBookToWishlist(int wishlist_id, int book_id){
         try{
-            retrofit2.Response<Wishlist> response = Api_Client.getApi().addBookToWishlist(wishlist_id, book_id).execute();
+            retrofit2.Response<Void> response = Api_Client.getApi().addBookToWishlist(wishlist_id, book_id).execute();
             if(response.isSuccessful()){
                 System.out.println("Book " + book_id + " was added to Wishlist " + wishlist_id);
             }
