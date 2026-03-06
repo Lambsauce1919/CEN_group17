@@ -1,19 +1,10 @@
 package com.example.demo;
 
 import java.util.Scanner;
-import java.util.concurrent.locks.Condition;
-
-import Wishlist.model.Wishlist;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import Wishlist.controller.WishlistController;
-
 import Session_Management.SessionManager;
-import org.springframework.context.ConfigurableApplicationContext;
 import profile_management.login_controller;
 import profile_management.registration_controller;
+import wishlist_management.WishlistController;
 public class Application {
 
 	public static void main(String[] args) throws Exception {
@@ -67,18 +58,22 @@ public class Application {
 		}
 		
 	System.out.println("Welcome to the Library, please see the menu options listed below.");
-	sc.nextLine(); // Consume any left overs.
 	if (SessionManager.getInstance().isAuthenticated())	{
-		
-		System.out.println("");
-		inp = sc.nextLine();
-		
+
 		do {
+
+			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username.");
+
+			inp = sc.nextLine();
 			
-			
+			if (inp == null) {
+				System.out.println("You have entered a malformed response.");
+				continue;
+
+      }
 			
 			switch (inp) {
-
+			
 				case "w": //Case for making a Wishlist
 					System.out.println("Enter a Wishlist name:");
 					String wishlistName = sc.nextLine();
@@ -102,11 +97,12 @@ public class Application {
 					break;
 
 
-			
-			
+
+			case "mSearch": // Member search functionality
+				profile_management.retrieve_ud.qUser(sc);
+				break;
 			
 			default: // If a user inputs something that doesn't line up with what we're offering, display this message.
-				inp = null;
 				System.out.println("You've entered an incorrect option, "
 						+ "options are not case-sensitive, however, grammar sensitive.");			
 				break;

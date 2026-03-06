@@ -1,60 +1,55 @@
 package profile_management.pObject_JSON;
 
-// This JSON holds all required data for registration.
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-// REQ: user pass
-// OPT: name, email, home address
+/**
+ * Optimized JSON Data Object for User Profile Management.
+ * Includes Jackson annotations to ensure perfect mapping between 
+ * Database, API, and Client.
+ */
 
-// Brenden
 
 public class RGData {
 
-	private String username;
-	private String password;
-	
-	private String hAddress;
-	private String eMail;
-	private String name;
+    @JsonProperty("username")
+    private String username;
 
-	
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String gethAddress() {
-		return hAddress;
-	}
-	public void sethAddress(String hAddress) {
-		this.hAddress = hAddress;
-	}
-	public String geteMail() {
-		return eMail;
-	}
-	public void seteMail(String eMail) {
-		this.eMail = eMail;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	public RGData(String username, String password, String hAddress, String eMail, String name) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.hAddress = hAddress;
-		this.eMail = eMail;
-		this.name = name;
-	}
+    @JsonProperty("password")
+    private String password;
+    
+    @JsonProperty("haddress")
+    private String haddress;
+    
+    @JsonProperty("email")
+    private String email;
+    
+    @JsonProperty("name")
+    private String name;
 
+  // MANDATORY FOR JACKSON AND RETROFIT
+    public RGData() {
+    }
+
+    public RGData(String username, String password, String haddress, String email, String name) {
+        this.username = username;
+        this.password = password;
+        this.haddress = haddress;
+        this.email = email;
+        this.name = name;
+    }
+    
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+
+    public String getPassword() { return password; }
+    public void setPassword(String password) { this.password = password; }
+
+    public String gethaddress() { return haddress; }
+    public void sethaddress(String haddress) { this.haddress = haddress; }
+
+    public String getemail() { return email; }
+    public void setemail(String email) { this.email = email; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
 }

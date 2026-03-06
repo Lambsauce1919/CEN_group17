@@ -1,13 +1,15 @@
 package API_CONTROLLERS;
 
-import Wishlist.model.Wishlist;
 import profile_management.pObject_JSON.LoginData;
 import profile_management.pObject_JSON.RGData;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
+import retrofit2.http.Path;
 // Initial design - Brenden
+import wishlist_json.Wishlist;
 
 public interface ApiServices {
 	
@@ -28,5 +30,9 @@ public interface ApiServices {
 	
 	@POST("/wishlists/addBook")
 	Call<Void> addBookToWishlist(@Query("wishlistId") int wishlist_id, @Query("bookId") int book_id);
-	
+	@GET("/user/{id}")
+	Call<RGData> requestUD(@Path("id") String username);
+
+
+
 }
