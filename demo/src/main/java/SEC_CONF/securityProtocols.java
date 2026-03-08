@@ -27,9 +27,9 @@ public class securityProtocols {
 	public DataSource dataSource() {
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
 	    dataSource.setDriverClassName("org.postgresql.Driver");
-	    dataSource.setUrl("jdbc:postgresql://localhost:5432/cen_sft");
+	    dataSource.setUrl("jdbc:postgresql://localhost:5432/bookstore");
 	    dataSource.setUsername("postgres");
-	    dataSource.setPassword("");
+	    dataSource.setPassword("raizel26");
 	    return dataSource;
 	}
 	

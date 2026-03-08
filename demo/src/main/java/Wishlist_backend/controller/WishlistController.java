@@ -21,8 +21,7 @@ public class WishlistController{
 
         try{
             String token = wishlistData.getToken();
-            Integer userId = jd.queryForObject("SELECT id FROM users WHERE token = ?", Integer.class, token);
-
+            Integer userId = jd.queryForObject("SELECT id FROM users WHERE token = ? OR stoken = ?", Integer.class, token, token);
             if (userId != null) {
                 Integer count = jd.queryForObject("SELECT COUNT(*) FROM wishlists WHERE users_id = ?", Integer.class, userId);
 
