@@ -63,6 +63,9 @@ public class Application {
 		do {
 
 			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username.");
+			System.out.println("Enter 'w' to create a wishlist.");
+			System.out.println("Enter 'a' to add a book to your wishlist.");
+
 
 			inp = sc.nextLine();
 			
@@ -80,7 +83,7 @@ public class Application {
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
 					int newId = WishlistController.createWishlist(wishlistName, currentSessionToken);
 					if(newId != -1) {
-						System.out.println("Wishlist" + wishlistName + "with ID: " + newId + "created successfully!");
+						System.out.println("Wishlist, " + wishlistName + ", with ID: " + newId + " created successfully!");
 					}
 					else{
 						System.out.println("Wishlist" + wishlistName + "not created successfully.");
