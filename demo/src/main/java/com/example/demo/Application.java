@@ -65,6 +65,7 @@ public class Application {
 			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username.");
 			System.out.println("Enter 'w' to create a wishlist.");
 			System.out.println("Enter 'a' to add a book to your wishlist.");
+			System.out.println("Enter 'r' to see the books within a wishlist.");
 
 
 			inp = sc.nextLine();
@@ -94,9 +95,14 @@ public class Application {
 					System.out.println("Enter the Wishlist ID of the wishlist you would like to add books to: ");
 					int wishlistId = Integer.parseInt(sc.nextLine());
 					System.out.println("Enter the Book ID of the book you would like to add: ");
-					int bookId = Integer.parseInt(sc.nextLine());
+					String bookId = sc.nextLine();
 					WishlistController.addBookToWishlist(wishlistId, bookId);
-					System.out.println("The book was added successfully!");
+					break;
+
+				case "r": //Case to return books in a wishlist
+					System.out.println("Enter the Wishlist ID of the wishlist you would like to see the books in:  ");
+					int wishlist_Id = Integer.parseInt(sc.nextLine());
+					WishlistController.getBooksFromWishlist(wishlist_Id);
 					break;
 
 
