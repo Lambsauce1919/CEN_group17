@@ -66,8 +66,9 @@ public class Application {
 			System.out.println("Enter 'w' to create a wishlist.");
 			System.out.println("Enter 'a' to add a book to your wishlist.");
 			System.out.println("Enter 'r' to see the books within a wishlist.");
-
-
+      System.out.println("Enter 'mSearch' to search for a users information by inputting their username.");
+      System.out.println("Enter 'updateInformation' to update your accounts associated information.")'
+        
 			inp = sc.nextLine();
 			
 			if (inp == null) {
@@ -109,6 +110,15 @@ public class Application {
 
 			case "mSearch": // Member search functionality
 				profile_management.retrieve_ud.qUser(sc);
+				break;
+				
+				
+				
+				
+				
+			case "updateInformation":
+				profile_management.update_ud.update_information(sc);
+				
 				break;
 			
 			default: // If a user inputs something that doesn't line up with what we're offering, display this message.

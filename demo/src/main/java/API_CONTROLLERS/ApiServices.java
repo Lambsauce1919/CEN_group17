@@ -1,13 +1,17 @@
 package API_CONTROLLERS;
 
+import java.util.HashMap;
+
 import profile_management.pObject_JSON.LoginData;
 import profile_management.pObject_JSON.RGData;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 // Initial design - Brenden
 import wishlist_json.BookData;
 import wishlist_json.Wishlist;
@@ -42,7 +46,10 @@ public interface ApiServices {
 
 	@GET("/user/{id}")
 	Call<RGData> requestUD(@Path("id") String username);
-
-
-
+	
+	@POST("/updateInfo")
+	Call<String> updateInfo(@Body HashMap<Integer, String> payload, @Header("Authorization") String sToken);
+	
+	
+	
 }
