@@ -67,7 +67,7 @@ public class Application {
 			System.out.println("Enter 'a' to add a book to your wishlist.");
 			System.out.println("Enter 'r' to see the books within a wishlist.");
       System.out.println("Enter 'mSearch' to search for a users information by inputting their username.");
-      System.out.println("Enter 'updateInformation' to update your accounts associated information.")'
+      System.out.println("Enter 'updateInformation' to update your accounts associated information.");
         
 			inp = sc.nextLine();
 			
