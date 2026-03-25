@@ -14,7 +14,7 @@ public class update_ud {
 	
 	public static void update_information(Scanner sc) {
 		
-		System.out.println("\nInformation Update Manager:\nu - email\np - password\nn - name\nh - home address"
+		System.out.println("\nInformation Update Manager:\ne - email\np - password\nn - name\nh - home address"
 				+ "\n");
 		
 		String inp = sc.nextLine();
