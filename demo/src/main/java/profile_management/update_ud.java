@@ -65,17 +65,21 @@ public class update_ud {
 			response = api.updateInfo(payload, SessionManager.getInstance().getSession_token()).execute();
 			
 			if (response.isSuccessful()) {
-				System.out.println("\n============================");
+				System.out.println("\n=============================");
 				System.out.println("|| Successfully updated data. ||");
 				System.out.println("==============================\n");
 				} else if (response.code() == 400) {
-					System.out.println("\n========================================");
+					System.out.println("\n=========================================");
 					System.out.println("|| Password does not meet requirements. ||");
 					System.out.println("==========================================\n");
 				} else if(response.code() == 204) {
-					System.out.println("\n================================================================");
+					System.out.println("\n=================================================================");
 					System.out.println("|| Your provided session token doesn't match or is expired. ||");
 					System.out.println("==================================================================\n");
+				} else if (response.code() == 409) {
+					System.out.println("\n=========================================================");
+					System.out.println("|| This email is already registered to another account. ||");
+					System.out.println("==========================================================\n");
 				} else {
 					System.out.println("\n===============================================================================");
 					System.out.println("|| There was an unspecified, unhandled error that occurred please try again. ||");
