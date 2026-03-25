@@ -59,34 +59,55 @@ public class Application {
 		
 	System.out.println("Welcome to the Library, please see the menu options listed below.");
 	if (SessionManager.getInstance().isAuthenticated())	{
-				
+
 		do {
-			
-			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username."
-					+ "\n'w' - create a wishlist.\n'updateInformation' - Update your accounts associated information (email excluded).");
-			
+
+			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username.");
+			System.out.println("Enter 'w' to create a wishlist.");
+			System.out.println("Enter 'a' to add a book to your wishlist.");
+			System.out.println("Enter 'r' to see the books within a wishlist.");
+      System.out.println("Enter 'mSearch' to search for a users information by inputting their username.");
+      System.out.println("Enter 'updateInformation' to update your accounts associated information.")'
+        
 			inp = sc.nextLine();
 			
 			if (inp == null) {
 				System.out.println("You have entered a malformed response.");
 				continue;
-		
+
       }
 			
 			switch (inp) {
-          
-          
-          
-			case "w": //Case for making a Wishlist
+			
+				case "w": //Case for making a Wishlist
 					System.out.println("Enter a Wishlist name:");
 					String wishlistName = sc.nextLine();
 					String currentSessionToken = SessionManager.getInstance().getSession_token();
-
-					WishlistController.createWishlist(wishlistName, currentSessionToken);
-					System.out.println("Wishlist created successfully!");
+					int newId = WishlistController.createWishlist(wishlistName, currentSessionToken);
+					if(newId != -1) {
+						System.out.println("Wishlist, " + wishlistName + ", with ID: " + newId + " created successfully!");
+					}
+					else{
+						System.out.println("Wishlist" + wishlistName + "not created successfully.");
+					}
 					break;
 
-			
+				case "a": //Case for adding books to wishlist
+					System.out.println("Enter the Wishlist ID of the wishlist you would like to add books to: ");
+					int wishlistId = Integer.parseInt(sc.nextLine());
+					System.out.println("Enter the Book ID of the book you would like to add: ");
+					String bookId = sc.nextLine();
+					WishlistController.addBookToWishlist(wishlistId, bookId);
+					break;
+
+				case "r": //Case to return books in a wishlist
+					System.out.println("Enter the Wishlist ID of the wishlist you would like to see the books in:  ");
+					int wishlist_Id = Integer.parseInt(sc.nextLine());
+					WishlistController.getBooksFromWishlist(wishlist_Id);
+					break;
+
+
+
 			case "mSearch": // Member search functionality
 				profile_management.retrieve_ud.qUser(sc);
 				break;
@@ -104,10 +125,16 @@ public class Application {
 				System.out.println("You've entered an incorrect option, "
 						+ "options are not case-sensitive, however, grammar sensitive.");			
 				break;
-		
+			
 			}
 			
+			
+			
 		} while (!inp.equalsIgnoreCase("quit")); }
+		
+		
+		
+		
 		
 		sc.close();
 		}
