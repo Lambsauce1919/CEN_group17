@@ -62,7 +62,8 @@ public class Application {
 				
 		do {
 			
-			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username.");
+			System.out.println("Menu options:\n'mSearch' - search for a users information by inputting their username."
+					+ "\n'w' - create a wishlist.\n'updateInformation' - Update your accounts associated information (email excluded).");
 			
 			inp = sc.nextLine();
 			
@@ -88,6 +89,15 @@ public class Application {
 			
 			case "mSearch": // Member search functionality
 				profile_management.retrieve_ud.qUser(sc);
+				break;
+				
+				
+				
+				
+				
+			case "updateInformation":
+				profile_management.update_ud.update_information(sc);
+				
 				break;
 			
 			default: // If a user inputs something that doesn't line up with what we're offering, display this message.
