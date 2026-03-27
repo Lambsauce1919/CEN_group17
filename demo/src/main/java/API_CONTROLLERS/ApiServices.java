@@ -50,6 +50,6 @@ public interface ApiServices {
 	Call<List<BookData>> getBooksByRating(@Path("rating") double rating);
 
 	@PUT("/api/books/discount/{publisher}/{percent}")
-	Call<String> discountBooksByPublisher(@Path("Publisher") String publisher,
-										   @Path("percent") double percent);
+	Call<String> discountBooksByPublisher(@Path("publisher") String publisher,
+										  @Path("percent") double percent);
 }
