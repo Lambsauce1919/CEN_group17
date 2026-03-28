@@ -1,6 +1,6 @@
 package Book_Browsing_Json;
 
-public class BookData {
+public class Book_Browsing_Data {
     private String bookName;
     private String genre;
     private String isbn;
@@ -8,7 +8,7 @@ public class BookData {
     private double price;
     private int copiesSold;
 
-    public BookData() {
+    public Book_Browsing_Data() {
     }
 
     public String getBookName() {
