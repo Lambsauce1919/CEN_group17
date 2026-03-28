@@ -1,8 +1,6 @@
 package API_CONTROLLERS;
 
 import java.util.HashMap;
-
-import java.util.HashMap;
 import java.util.List;
 
 import profile_management.pObject_JSON.LoginData;
@@ -13,8 +11,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
-import retrofit2.http.Query;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 // Initial design - Brenden
 import wishlist_json.BookData;
 import wishlist_json.Wishlist;
