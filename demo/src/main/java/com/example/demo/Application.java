@@ -68,7 +68,7 @@ public class Application {
 			System.out.println("Enter 'r' to see the books within a wishlist.");
       System.out.println("Enter 'mSearch' to search for a users information by inputting their username.");
       System.out.println("Enter 'updateInformation' to update your accounts associated information.");
-        
+      System.out.println("Enter 'cart' to use Shopping Cart."); 
 			inp = sc.nextLine();
 			
 			if (inp == null) {
@@ -100,6 +100,9 @@ public class Application {
 					WishlistController.addBookToWishlist(wishlistId, bookId);
 					break;
 
+					case "cart":
+                    System.out.println("Shopping Cart feature selected.");
+                    break;
 				case "r": //Case to return books in a wishlist
 					System.out.println("Enter the Wishlist ID of the wishlist you would like to see the books in:  ");
 					int wishlist_Id = Integer.parseInt(sc.nextLine());
