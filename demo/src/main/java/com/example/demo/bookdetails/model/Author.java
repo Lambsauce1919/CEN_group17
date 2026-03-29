@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table (name = "authors")
-public class Author {
+public class Author { //inputs all information about author including ID, First/Last Name, Biography, and Publisher).
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "author_id")
