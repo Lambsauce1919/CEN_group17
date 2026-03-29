@@ -105,6 +105,9 @@ public class Application {
 					WishlistController.addBookToWishlist(wishlistId, bookId);
 					break;
 
+					case "cart":
+                    System.out.println("Shopping Cart feature selected.");
+                    break;
 				case "r": //Case to return books in a wishlist
 					System.out.println("Enter the Wishlist ID of the wishlist you would like to see the books in:  ");
 					int wishlist_Id = Integer.parseInt(sc.nextLine());
